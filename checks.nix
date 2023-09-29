@@ -37,6 +37,9 @@ in
   init-example-el-emacsGit = doom-emacs-example.override {
     emacsPackages = with pkgs; emacsPackagesFor emacsGit;
   };
+  init-example-el-emacs29 = doom-emacs-example.override {
+    emacsPackages = with pkgs; emacsPackagesFor emacs29;
+  };
   init-example-el-splitdir = self.outputs.package.${system} {
     dependencyOverrides = inputs;
     doomPrivateDir = pkgs.linkFarm "my-doom-packages" [
