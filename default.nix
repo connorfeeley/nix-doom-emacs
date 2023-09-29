@@ -262,7 +262,7 @@ in emacs.overrideAttrs (esuper:
     # `--init-directory` is supported by Emacs 29+ only
     initDirArgs = lib.optionalString isEmacs29 ''
       if [[ $(basename $1) == emacs ]] || [[ $(basename $1) == emacs-* ]]; then
-        wrapArgs+=(--add-flags '--init-directory ${emacs-dir}')
+        wrapArgs+=(--add-flags '--init-directory ${doom-emacs}')
       fi
     '';
     cmd = ''
