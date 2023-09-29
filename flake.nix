@@ -37,11 +37,11 @@
 
   inputs = {
     # TODO: change back to master once we get synced back with upstream changes
-    doom-emacs.url = "github:doomemacs/doomemacs/3853dff5e11655e858d0bfae64b70cb12ef685ac";
+    doom-emacs.url = "github:doomemacs/doomemacs";
     doom-emacs.flake = false;
     doom-snippets.url = "github:doomemacs/snippets";
     doom-snippets.flake = false;
-    emacs-overlay.url = "github:nix-community/emacs-overlay/c16be6de78ea878aedd0292aa5d4a1ee0a5da501";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.flake = false;
     emacs-so-long.url = "github:hlissner/emacs-so-long";
     emacs-so-long.flake = false;
