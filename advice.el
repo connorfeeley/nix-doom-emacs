@@ -50,3 +50,7 @@
             :override (lambda (&rest r)
                         (require 'straight)
                         (straight--make-build-cache-available)))
+
+;; don't let doom redefine `autoload-compute-prefixes' as dynamic when it's already lexical
+(advice-add 'doom-cli--straight-no-compute-prefixes-a
+            :override (lambda (fn &rest args) (apply fn args)))
