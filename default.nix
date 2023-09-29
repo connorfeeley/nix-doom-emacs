@@ -192,6 +192,10 @@ let
     name = "doom-emacs";
     src = doomSrc;
 
+    patches = [
+      ./patches/nix-integration.patch
+    ];
+
     buildPhase = ''
       # Remove the windows wrapper for the CLI so the build doesn't fail
       rm bin/doom.cmd
