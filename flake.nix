@@ -119,6 +119,7 @@
           default = self.outputs.packages.${system}.doom-emacs-example;
           doom-emacs-example = pkgs.callPackage self {
             doomPrivateDir = ./test/doom.d;
+            emacsPackages = pkgs.emacs29.pkgs;
           };
         };
         checks = import ./checks.nix { inherit system; } inputs;
