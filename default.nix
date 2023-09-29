@@ -193,7 +193,7 @@ let
     src = doomSrc;
 
     patches = [
-      ./patches/nix-integration.patch
+      # ./patches/nix-integration.patch
     ];
 
     buildPhase = ''

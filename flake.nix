@@ -36,8 +36,9 @@
   description = "nix-doom-emacs home-manager module";
 
   inputs = {
-    # TODO: change back to master once we get synced back with upstream changes
-    doom-emacs.url = "github:doomemacs/doomemacs";
+    # doom-emacs.url = "github:doomemacs/doomemacs";
+    # doom-emacs.url = "path:/Users/cfeeley/source/doomemacs";
+    doom-emacs.url = "git+file:/Users/cfeeley/source/doomemacs";
     doom-emacs.flake = false;
     doom-snippets.url = "github:doomemacs/snippets";
     doom-snippets.flake = false;
@@ -119,7 +120,10 @@
           default = self.outputs.packages.${system}.doom-emacs-example;
           doom-emacs-example = pkgs.callPackage self {
             doomPrivateDir = ./test/doom.d;
-            emacsPackages = pkgs.emacs29.pkgs;
+          };
+          doom-emacs-example-29 = pkgs.callPackage self {
+            doomPrivateDir = ./test/doom.d;
+            emacsPackages = pkgs.emacsPackagesFor pkgs.emacs29;
           };
         };
         checks = import ./checks.nix { inherit system; } inputs;

@@ -54,3 +54,21 @@
 ;; don't let doom redefine `autoload-compute-prefixes' as dynamic when it's already lexical
 (advice-add 'doom-cli--straight-no-compute-prefixes-a
             :override (lambda (fn &rest args) (apply fn args)))
+
+;; don't try writing to store
+;; (define-advice comp-run-async-workers (:around (fn &rest args) do-litter-tmpdir)
+;;   "Normally, native-comp writes a ton to /tmp. This advice forces it to write
+;; to `doom-cache-dir'/comp/ instead, so that Doom can safely clean it up as part
+;; of 'doom sync' or 'doom gc'."
+;;   (let ()
+;;     (make-directory temporary-file-directory t)
+;;     (apply fn args)))
+
+;; HACK
+;; (defun advice-unadvice (sym)
+;;   "Remove all advices from symbol SYM."
+;;   ;; (interactive "aFunction symbol: ")
+;;   (advice-mapc (lambda (advice _props) (advice-remove sym advice)) sym))
+
+;; ;; don't try writing to store
+;; (advice-unadvice 'comp-run-async-workers)
