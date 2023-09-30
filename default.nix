@@ -218,6 +218,7 @@ let
     cat $extraConfigPath > $out/config.extra.el
     cat > $out/config.el << EOF
     (load "${./doom-modeline-workarounds.el}")
+    (load "${./nix-store-workarounds.el}")
     (load "${doomPrivateDir}/config.el")
     (load "$out/config.extra.el")
     EOF
