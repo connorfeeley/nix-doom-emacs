@@ -11,5 +11,8 @@
 (custom-set-variables '(doom-cache-dir
                         ;; FIXME: should probably use home directory instead.
                         ;; (file-name-concat temporary-file-directory "doom.d" "cache")
-                        ;; Use XDG cache dir.
-                        (expand-file-name "doom/" (or (getenv-internal "XDG_CACHE_HOME") "~/.cache"))))
+                        ;; Use XDG cache directory.
+                        (expand-file-name "doom/" (or (getenv-internal "XDG_CACHE_HOME") "~/.cache")))
+                      '(user-emacs-directory
+                        ;; Use XDG state directory.
+                        (expand-file-name "doom/" (or (getenv-internal "XDG_STATE_HOME") "~/.local/state"))))
