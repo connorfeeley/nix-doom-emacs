@@ -1,3 +1,5 @@
 ;;; config.el -*- lexical-binding: t; -*-
 
-;; (setq doom-profile-cache-dir "/Users/cfeeley/.doom.d/.local/cache/profiles")
+;; `comp-run-async-workers' is advised to force it to output `doom-cache-dir'/comp/
+;; instead of /tmp. Restore the original behaviour.
+(advice-remove 'comp-run-async-workers #'comp-run-async-workers@dont-litter-tmpdir)
