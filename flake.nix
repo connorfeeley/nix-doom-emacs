@@ -119,6 +119,10 @@
           doom-emacs-example = pkgs.callPackage self {
             doomPrivateDir = ./test/doom.d;
           };
+          doom-emacs-example-29 = pkgs.callPackage self {
+            doomPrivateDir = ./test/doom.d;
+            emacsPackages = pkgs.emacsPackagesFor pkgs.emacs29;
+          };
         };
         checks = import ./checks.nix { inherit system; } inputs;
       }) // {
