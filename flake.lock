@@ -3,8 +3,11 @@
     "doom-emacs": {
       "flake": false,
       "locked": {
-        "lastModified": 1695417511,
-        "narHash": "sha256-3CYclRnrG3IWQmWpPyxZej3e1NuV11eLvOouUfSjEXg=",
+        "lastModified": 1696045249,
+        "narHash": "sha256-NtbjOcxOM9axQMQQiR1Rn1Vln3n1CwMPO59FdLz7DeY=",
+        "ref": "refs/heads/hacks/nix-doom-emacs",
+        "rev": "21cde377e4d015909c01d52c1e4bd3822f087895",
+        "revCount": 18547,
         "type": "git",
         "url": "file:/Users/cfeeley/source/doomemacs"
       },
