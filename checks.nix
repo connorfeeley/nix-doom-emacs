@@ -13,8 +13,9 @@ let
   # we are cloning HM here for the same reason as above, to avoid
   # an extra additional input to be added to flake
   home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/tarball/c485669ca529e01c1505429fa9017c9a93f15559";
-    sha256 = "1zdclkqg1zg06x986q4s03h574djbk8vyrhyqar9yzk61218vmij";
+    # 2023-09-30: tracking 'master'.
+    url = "https://github.com/nix-community/home-manager/tarball/4f02e35f9d150573e1a710afa338846c2f6d850c";
+    sha256 = "sha256:08yqd5ya7pk3haf9a1br0qbwkq2xa167zaqnfc4fj54sls0hl31d";
   };
 in
 {
@@ -25,7 +26,7 @@ in
       home = {
         username = "nix-doom-emacs";
         homeDirectory = "/tmp";
-        stateVersion = "22.11";
+        stateVersion = "23.05";
       };
       programs.doom-emacs = {
         enable = true;
