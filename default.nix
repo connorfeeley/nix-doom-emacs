@@ -213,6 +213,7 @@ let
     chmod u+w $out/config.el
     cat $extraConfigPath > $out/config.extra.el
     cat > $out/config.el << EOF
+    (load "${./nix-workarounds.el}")
     (load "${./doom-modeline-workarounds.el}")
     (load "${doomPrivateDir}/config.el")
     (load "$out/config.extra.el")
@@ -231,6 +232,7 @@ let
       (load "${doom-emacs}/lisp/doom.el")
       (load "${doom-emacs}/lisp/doom-start.el")
       (load "${./info-workarounds.el}")
+      (load "${./nix-workarounds.el}")
     '';
   in (emacsPackages.emacsWithPackages (epkgs: [ load-config-from-site ]));
 

@@ -51,6 +51,11 @@
                         (require 'straight)
                         (straight--make-build-cache-available)))
 
+;; FIXME: use `advice-remove'
 ;; don't let doom redefine `autoload-compute-prefixes' as dynamic when it's already lexical
 (advice-add 'doom-cli--straight-no-compute-prefixes-a
             :override (lambda (fn &rest args) (apply fn args)))
+
+;; `comp-run-async-workers' is advised to force it to output `doom-cache-dir'/comp/
+;; instead of /tmp. Restore the original behaviour.
+(advice-remove 'comp-run-async-workers #'comp-run-async-workers@dont-litter-tmpdir)
