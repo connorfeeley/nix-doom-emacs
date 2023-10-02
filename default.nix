@@ -271,6 +271,7 @@ in emacs.overrideAttrs (esuper:
               --set __DEBUG_doom_emacs_DIR ${doom-emacs}
               --set __DEBUG_doomLocal_DIR ${doomLocal}
               --set-default DOOMDIR ${doomDir}
+              --set-default EMACSDIR ${emacs-dir}
               --set-default DOOMLOCALDIR ${doomLocal}
           )
           ${initDirArgs}
