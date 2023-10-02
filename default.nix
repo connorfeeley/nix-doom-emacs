@@ -136,10 +136,7 @@ let
       else
         emacsPackages.overrideScope' overrides;
       emacs = emacsPackages.emacsWithPackages extraPackages;
-      emacsLoadFiles = [
-        ./advice.el
-        ./nix-workarounds.el
-      ];
+      emacsLoadFiles = [ ./advice.el ];
       emacsArgs = [ "--" "install" "--no-hooks" "--no-fonts" "--no-env" ];
 
       # Need to reference a store path here, as byte-compilation will bake-in
