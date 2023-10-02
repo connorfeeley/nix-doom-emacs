@@ -1,0 +1,33 @@
+From 8b6786be388ea4399e1fc7876781eb25c25c9677 Mon Sep 17 00:00:00 2001
+From: Connor Feeley <git@cfeeley.org>
+Date: Sat, 30 Sep 2023 15:08:11 -0400
+Subject: [PATCH] native-comp: don't try writing to nix store
+
+---
+ lisp/doom.el | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/lisp/doom.el b/lisp/doom.el
+index 2ad088827..61c2b36a8 100644
+--- a/lisp/doom.el
++++ b/lisp/doom.el
+@@ -607,15 +607,7 @@ Otherwise, `en/disable-command' (in novice.el.gz) is hardcoded to write them to
+     (and (null comp-num-cpus)
+          (zerop native-comp-async-jobs-number)
+          (setq comp-num-cpus
+-               (max 1 (/ (num-processors) (if noninteractive 1 4))))))
+-
+-  (define-advice comp-run-async-workers (:around (fn &rest args) dont-litter-tmpdir)
+-    "Normally, native-comp writes a ton to /tmp. This advice forces it to write
+-to `doom-cache-dir'/comp/ instead, so that Doom can safely clean it up as part
+-of 'doom sync' or 'doom gc'."
+-    (let ((temporary-file-directory (expand-file-name "comp/" doom-profile-cache-dir)))
+-      (make-directory temporary-file-directory t)
+-      (apply fn args))))
++               (max 1 (/ (num-processors) (if noninteractive 1 4)))))))
+ 
+ ;;; Suppress package.el
+ ;; Since Emacs 27, package initialization occurs before `user-init-file' is
+-- 
+2.40.1
+

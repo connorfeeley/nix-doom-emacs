@@ -109,6 +109,7 @@ let
     phases = [ "unpackPhase" "patchPhase" "installPhase" ];
     patches = [
       ./patches/fix-paths.patch
+      ./patches/0001-native-comp-don-t-try-writing-to-nix-store.patch
     ];
     installPhase = ''
       mkdir -p $out
